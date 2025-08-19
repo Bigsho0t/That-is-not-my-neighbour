@@ -1,6 +1,3 @@
-using System.Collections.Specialized;
-using System.Runtime.CompilerServices;
-
 public class GeradorPessoa
 {
 
@@ -61,7 +58,7 @@ public class GeradorPessoa
         int idade = random.Next(18, 60);
         string id = random.Next(1000, 9999).ToString();
         string aparencia = aparencias[random.Next(aparencias.Length)];
-        bool impostor = random.Next(100) < 35;
+        bool impostor = random.Next(100) < 20;
 
         Pessoa pessoa = new Pessoa(nome, idade, id, aparencia, impostor);
 
@@ -76,15 +73,39 @@ public class GeradorPessoa
             {
 
                 case 1:
-                    documento.Nome = "???";
+                    string nomeFalso = nomes[random.Next(nomes.Length)];
+
+                    while (nome == nomeFalso) 
+                    {
+
+                        nomeFalso = nomes[random.Next(nomes.Length)];
+                    }
+
+                    documento.Nome = nomeFalso;
                     break;
 
                 case 2:
-                    documento.Id = "0000";
+                    string idFalso = random.Next(1000, 10000).ToString();
+
+                    while (id == idFalso) 
+                    {
+
+                        idFalso = random.Next(1000, 10000).ToString();
+                    }
+
+                    documento.Id = idFalso;
                     break;
 
                 case 3:
-                    documento.Aparencia = aparencias[random.Next(aparencias.Length)];
+                    string aparenciaFalsa = aparencias[random.Next(aparencias.Length)];
+
+                    while (aparencia == aparenciaFalsa) 
+                    {
+
+                        aparenciaFalsa = aparencias[random.Next(aparencias.Length)];
+                    }
+
+                    documento.Aparencia = aparenciaFalsa;
                     break;
 
                 case 4:
